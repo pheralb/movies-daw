@@ -1,9 +1,9 @@
 import { Router } from "express";
-import {getByName, getLista} from "../controllers/lista.controller"
+import {getById, getLista} from "../controllers/lista.controller"
 
 const router = Router()
 
 router.post("/lista", getLista)
-router.post("/obtenerPorNombre", getByName)
+router.post("/obtener", getById)
 
 export default router;
