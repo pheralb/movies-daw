@@ -1,20 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-// 🎨 Bootstrap & styles ->
-import 'bootstrap/dist/css/bootstrap.css';
+// 🎨 Global styles ->
 import "styles/global.scss";
 
-// 🟡 Bootstrap Javascript ->
-import 'bootstrap/dist/js/bootstrap.min.js';
+// 🌱 React Router ->
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// 📦 Pages ->
+import Catalogo from "pages/catalogo";
+import Error404 from "pages/404";
+
+// 🎨 Layout ->
+import Layout from "components/layout";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 reportWebVitals();

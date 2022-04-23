@@ -1,5 +1,8 @@
-import app from "./app"
+import app from "./app";
+require("dotenv").config();
 
-app.listen(3000)
 
-console.log('Server listen on port', 3000);
+// Start the server on port... ->
+const port = process.env.PORT || 3000;
+app.listen(port);
+console.log("🚀 [backend] Server listening on port:", port);
