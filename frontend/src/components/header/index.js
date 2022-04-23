@@ -34,7 +34,7 @@ const Index = () => {
 
           <section id="About">
             <h1>Sobre nosotros</h1>
-            <hr></hr>
+
             <p>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -62,7 +62,6 @@ const Index = () => {
               Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
               dolor sit amet.
             </p>
-            <hr></hr>
           </section>
           <section id="Services">
             <h1>Ventajas</h1>
@@ -78,7 +77,6 @@ const Index = () => {
               Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
               dolor sit amet.
             </p>
-            <hr></hr>
           </section>
         </body>
       </html>

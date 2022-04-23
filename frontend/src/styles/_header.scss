@@ -1,16 +1,16 @@
 body {
   min-width: 800px;
-  background: #ff00cc; /* fallback for old browsers */
+  background: #ff00cc;
   background: -webkit-linear-gradient(
     to right,
     #333399,
     #ff00cc
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  );
   background: linear-gradient(
     to right,
     #333399,
     #ff00cc
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  );
 
   margin: 0px;
 }
@@ -124,7 +124,7 @@ section {
 }
 
 h1 {
-  color: #111;
+  color: black;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 200px;
   font-weight: bold;
@@ -139,8 +139,4 @@ p {
   font-family: "Calibri", sans-serif;
   font-size: 25px;
   line-height: 1.5;
-}
-
-hr {
-  background-color: #000;
 }
