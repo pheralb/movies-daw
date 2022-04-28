@@ -10,6 +10,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 app.use("/omdbapi", omdbapiRoutes);
-app.use("/products", productsRoutes);
+app.use("/productos", productsRoutes);
 
 export default app;
