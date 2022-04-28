@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getByName, getList, save, update, del} from "../controllers/products.controller"
+import { getByName, getList, save, update, del, fillDb} from "../controllers/products.controller"
 const router = Router()
 
 // [GET] Url -> /lista ->
@@ -16,4 +16,7 @@ router.put("/actualizar/:name", update)
 
 //[DELETE] Url -> /actualizar ->
 router.delete("/borrar/:name", del)
+
+//[POST] Url -> /cargarDatos ->
+router.post("/cargarDatos", fillDb)
 export default router;

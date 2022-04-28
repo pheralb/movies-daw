@@ -132,4 +132,43 @@ export const del = async (req, res)=>{
     console.log("❌ [backend] [omdbapi] delete:", err);
     res.status(500).json(err)
   }
-}
+};
+
+/**
+ * Carga la base de datos con los datos del array
+ * @param {*} req
+ * @param {*} res
+ */
+
+export const fillDb = (req, res)=>{
+  const series = [
+    "bleach",
+    "naruto",
+    "hunter x hunter",
+    "porno"
+  ]
+  console.log(`📨 [backend] [product] fillDb: `, series)
+  try{
+    series.forEach(serie => {
+      const json = JSON.stringify({"id": serie});
+      axios.post(`http://127.0.0.1:${process.env.PORT}/omdbapi/obtener`, json , {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(resOmdbApi => {
+        axios.post(`http://127.0.0.1:${process.env.PORT}/productos/guardar`, resOmdbApi.data , {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+      });
+    })
+    console.log("✅ [backend] [omdbapi] fillDb:")
+    res.status(201).json()
+  }
+  catch(err){
+    console.log("❌ [backend] [omdbapi] fillDb:", err);
+    res.status(500).json(err)
+  }
+};

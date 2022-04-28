@@ -6,6 +6,6 @@ const router = Router()
 router.get("/lista", getList)
 
 // [GET] Url -> /obtener ->
-router.get("/obtener", getById)
+router.post("/obtener", getById)
 
 export default router;
