@@ -11,7 +11,9 @@ const apikey = process.env.API_KEY_OMDAPI;
  * @param {"name": "naruto","page":  "2"} req
  * @param {*} res
  */
-export const getLista = (req, res) => {
+export const getList = (req, res) => {
+  console.log(`📨 [backend] [omdbapi] getList: `)
+  console.log(req.body)
   var url = `${apiURL}?s=${req.body.name}&page=${req.body.page}&apikey=${apikey}`;
   axios
     .get(url)
@@ -19,10 +21,11 @@ export const getLista = (req, res) => {
       if (resAPI.data.Response === "False") {
         throw new Error(res.data.Error);
       }
+      console.log("✅ [backend] [omdbapi] getList:", resAPI.data);
       res.status(200).json(resAPI.data);
     })
     .catch((err) => {
-      console.log("❌ [backend] getLista:", err);
+      console.log("❌ [backend] [omdbapi] getList:", err);
       res.status(404).json();
     });
 };
@@ -33,17 +36,20 @@ export const getLista = (req, res) => {
  * @param {*} res
  */
 export const getById = (req, res) => {
-  var url = `${apiURL}?i=${req.body.id}&apikey=${apikey}`;
+  console.log(`📨 [backend] [omdbapi] getById: `)
+  console.log(req.body)
+  var url = `${apiURL}?t=${req.body.id}&apikey=${apikey}`;
   axios
     .get(url)
     .then((resAPI) => {
       if (resAPI.data.Response === "False") {
-        throw new Error(res.data.Error);
+        throw new Error(resAPI.data.Error);
       }
+      console.log("✅ [backend] [omdbapi] getById:", resAPI.data);
       res.status(200).json(resAPI.data);
     })
     .catch((err) => {
-      console.log("❌ [backend] getById:", err);
+      console.log("❌ [backend] [omdbapi] getById:", err);
       res.status(404).json();
     });
 };

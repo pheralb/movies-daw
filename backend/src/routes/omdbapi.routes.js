@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { getById, getLista } from "../controllers/lista.controller"
+import { getById, getList } from "../controllers/omdbapi.controller"
 const router = Router()
 
 // [GET] Url -> /lista ->
-router.get("/lista", getLista)
+router.get("/lista", getList)
 
 // [GET] Url -> /obtener ->
-router.get("/obtener", getById)
+router.post("/obtener", getById)
 
 export default router;

@@ -1,4 +1,5 @@
 import app from "./app";
+import "./models/database"
 require("dotenv").config();
 
 
