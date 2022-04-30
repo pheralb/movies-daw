@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "3abe9a96-31f5-4035-8675-91bd5f0402d4",
+		"name": "PlayMoviez",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Product.save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Title\": \"Prueba\",\r\n    \"Year\": \"2002–2007\",\r\n    \"Rated\": \"TV-PG\",\r\n    \"Released\": \"10 Sep 2005\",\r\n    \"Runtime\": \"24 min\",\r\n    \"Genre\": \"Animation, Action, Adventure\",\r\n    \"Director\": \"N/A\",\r\n    \"Writer\": \"Masashi Kishimoto\",\r\n    \"Actors\": \"Junko Takeuchi, Maile Flanagan, Kate Higgins\",\r\n    \"Plot\": \"Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.\",\r\n    \"Language\": \"English, Japanese\",\r\n    \"Country\": \"Japan\",\r\n    \"Awards\": \"N/A\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg\",\r\n    \"Ratings\": [\r\n        {\r\n            \"Source\": \"Internet Movie Database\",\r\n            \"Value\": \"8.4/10\"\r\n        }\r\n    ],\r\n    \"Metascore\": \"N/A\",\r\n    \"imdbRating\": \"8.4\",\r\n    \"imdbVotes\": \"92,850\",\r\n    \"imdbID\": \"tt0409591\",\r\n    \"Type\": \"series\",\r\n    \"totalSeasons\": \"1\",\r\n    \"Response\": \"True\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/productos/guardar",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"guardar"
+							]
+						},
+						"description": "Guarda los datos de una serie/pelicula"
+					},
+					"response": []
+				},
+				{
+					"name": "Product.getList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/lista",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"lista"
+							]
+						},
+						"description": "Obtiene la lista completa de peliculas/series"
+					},
+					"response": []
+				},
+				{
+					"name": "Products.update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Naruto\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/productos/actualizar/Naruto2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"actualizar",
+								"Naruto2"
+							]
+						},
+						"description": "Actualizar los datos de un producto usando su nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Product.getByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/obtener/Naruto2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"obtener",
+								"Naruto2"
+							]
+						},
+						"description": "Obtiene los datos de una serie/pelicula por su nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Producto.delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/borrar/Naruto",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"borrar",
+								"Naruto"
+							]
+						},
+						"description": "Borra una serie/pelicula por su nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Product.filldb",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/cargarDatos",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"cargarDatos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Omdbapi",
+			"item": [
+				{
+					"name": "Omdbapi.getByTitle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"naruto\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/omdbapi/obtener",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"omdbapi",
+								"obtener"
+							]
+						},
+						"description": "Llama a omdbapi y obtiene los datos de una serie/pelicula"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

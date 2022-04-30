@@ -145,7 +145,6 @@ export const fillDb = (req, res)=>{
     "bleach",
     "naruto",
     "hunter x hunter",
-    "porno"
   ]
   console.log(`📨 [backend] [product] fillDb: `, series)
   try{
