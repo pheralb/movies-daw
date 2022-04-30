@@ -1,70 +1,75 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  display: flex;
-  overflow: hidden;
-  justify-content: center;
-  height: 100px;
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
 }
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 25px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  transition: all 0.5s ease;
+.navContainer{
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-top: 40px;
 }
-
-.subnav {
-  float: left;
-  overflow: hidden;
+.subnavbtn{
+    color: red;
+    text-decoration: none;
+    background-image: linear-gradient(
+    to right,
+    #00BBF9,
+    #00F5D4 50%,
+    #000 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
+.subnavbtn:before{
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .subnavbtn:hover {
+   background-position: 0;
+  }
+  
+  .subnavbtn:hover::before{
+    width: 100%;
+  }
 
-.subnav .subnavbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 25px;
-  background-color: inherit;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  transition: all 0.5s ease;
+.subnav{
+    /* background-color: blue; */
+    width: 90px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.logo{
+    
+    max-width: 100px;
 
-.navbar a:hover,
-.subnav:hover .subnavbtn {
-  background: #8ca6db;
-  color: black;
-  border-radius: 5px;
 }
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  transform: perspective(-10px);
+.logoContainer{
+    width: 100px;
+    height: 100px;
+    margin-top: -30px;
 }
-
-.subnav-content a {
-  float: left;
-  color: white;
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background: #b993d6;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: flex;
-  justify-content: center;
+.buscar{
+    height: 20px;
+    width: 180px;
+    border-radius: 1rem;
+    margin-top: 10px;
+    border: solid 1px
 }
