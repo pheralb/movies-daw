@@ -1,38 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-// 🎨 Header styles ->
-import styles from "./header.module.scss";
-
-const Index = () => {
-  return (
-    <>
-      <div className={styles.navContainer}>
-        <div className={styles.logoContainer}>
-          <img className="logo" src="/images/playMoviez.png" alt="logo" />
-        </div>
-        <nav className={styles.navbar}>
-          <div className={styles.subnav}>
-            <Link to="/" className={styles.subnavbtn}>
-              PlayMovieZ
-            </Link>
-          </div>
-          <div className={styles.subnav}>
-            <Link to="/catalogo" className={styles.subnavbtn}>
-              Catálogo
-            </Link>
-          </div>
-          <div className={styles.subnav}>
-            <Link to="/" className={styles.subnavbtn}>
-              Categorías
-            </Link>
-          </div>
-          <div className={styles.subnav}>
-            <Link to="/" className={styles.subnavbtn}>
-              Contacto    
-            </Link>
-{/*             <div>
-            <svg width="0" height="30" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
  <g id="Layer_1">
   <title>Layer 1</title>
   <path transform="rotate(180 99.8389 102.797)" id="svg_8" d="m107.36221,71.43121l-29.00271,28.39373l28.64417,9.75459l-26.47556,30.48311l-10.68925,-5.14754l7.58151,29.38237l30.12966,-12.81935l-12.72123,-5.35843l34.54372,-43.7836l-31.57686,-7.93548l30.49256,-29.58671l-17.39354,-4.44229l18.94417,-18.8039l-6.95928,-0.27024l-29.3976,25.79693l13.88023,4.33681l0,-0.00001z" stroke="#000" fill="#fff"/>
@@ -41,15 +7,3 @@ const Index = () => {
   <path stroke="#000" id="svg_11" d="m768.21501,89.51255l-1.45014,0.92337l1.43221,0.31722l-1.32378,0.99132l-0.53446,-0.1674l0.37908,0.95552l1.50649,-0.41689l-0.63606,-0.17426l1.72719,-1.42386l-1.57885,-0.25806l1.52463,-0.96217l-0.86968,-0.14446l0.94721,-0.61151l-0.34797,-0.00879l-1.46989,0.83892l0.69401,0.14103l0,0z" fill="#fff"/>
  </g>
 </svg>
-            </div> */}
-          </div>
-        </nav>
-        <div className={styles.buscar}>
-        <p><i class="fas fa-search"></i></p>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Index;
