@@ -188,10 +188,20 @@ export const getCategories = async (req, res) => {
   try{
     const products = await Product.find();
     if(products.length != 0){
-      // products.forEach(product => {
-      //   product.
-      // })
-      console.log("✅ [backend] [omdbapi] fillDb:")
+      let categories = []; 
+      products.forEach(product => {
+        product.genre.split(", ").forEach(genre => {
+          categories.indexOf(genre) === -1 ? categories.push(genre) : ""
+        })
+      })
+      if(products.length != 0){
+        console.log("✅ [backend] [omdbapi] getCategories:")
+        res.status(200).json(categories)
+      }
+      else{
+        console.log("❌ [backend] [omdbapi] getCategories:", categories);
+        res.status(404).json(categories)
+      }
     }
     else{
     console.log("❌ [backend] [omdbapi] getCategories:", products);

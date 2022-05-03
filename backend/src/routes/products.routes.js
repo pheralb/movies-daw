@@ -24,6 +24,6 @@ router.delete("/borrarTodos", deleteAll)
 router.post("/cargarDatos", fillDb)
 
 //[GET] Url -> /categorias ->
-router.post("/categorias", getCategories)
+router.get("/categorias", getCategories)
 
 export default router;
