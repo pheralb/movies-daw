@@ -9,7 +9,7 @@ const productSchema = new Schema({
     writer: String,
     actors: String,
     plot: String,
-    languaje: String,
+    language: String,
     country: String,
     awards: String,
     poster: String,

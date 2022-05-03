@@ -69,7 +69,7 @@ export const save = async (req, res) => {
                         writer: Writer,
                         actors: Actors,
                         plot: Plot,
-                        languake: Language,
+                        language: Language,
                         country: Country,
                         awards: Awards,
                         poster: Poster,
@@ -177,3 +177,5 @@ export const fillDb = (req, res)=>{
     res.status(500).json(err)
   }
 };
+
+
