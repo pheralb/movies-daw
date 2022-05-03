@@ -76,14 +76,16 @@ export const save = async (req, res) => {
                         rating: imdbRating,
                         type: Type,
                         totalSeasons})
-    
-    if(Product.findOne({"title": Title})){
+    if(await Product.findOne({"title": Title})){
       console.log("❌ [backend] [omdbapi] save:", `${Title} repetido`);
       res.status(400).json(`Encontrado producto de título: ${Title}`)
     }
-    const productSave = await newProduct.save()
-    console.log("✅ [backend] [omdbapi] save:", productSave);
-    res.status(201).json(productSave)
+    else{
+      const productSave = await newProduct.save()
+      console.log("✅ [backend] [omdbapi] save:", productSave);
+      res.status(201).json(productSave)
+    }
+    
   }catch(err){
     console.log("❌ [backend] [omdbapi] save:", err);
     res.status(500).json(err)
