@@ -1,0 +1,21 @@
+{
+  "name": "movies-daw",
+  "version": "1.0.0",
+  "description": "movies-daw",
+  "main": "index.js",
+  "scripts": {
+    "front": "cd ./frontend && npm run dev",
+    "back": "cd ./backend && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pheralb/movies-daw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pheralb/movies-daw/issues"
+  },
+  "homepage": "https://github.com/pheralb/movies-daw#readme"
+}
