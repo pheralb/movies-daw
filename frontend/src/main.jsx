@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import App from "./pages";
 
 // ⭐ Chakra UI ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -14,6 +14,7 @@ import Layout from "@/components/layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // 📦 Pages ->
+import Home from "@/pages/index";
 import Catalogo from "@/pages/catalogo";
 import Error404 from "@/pages/404";
 
@@ -23,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ChakraProvider theme={theme}>
         <Layout>
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<Home />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
