@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { getByName, getList, save, update, del, fillDb, getCategories, deleteAll, getListByCategorie} from "../controllers/products.controller"
+import { getById, getList, save, update, del, fillDb, getCategories, deleteAll, getListByCategorie} from "../controllers/products.controller"
 const router = Router()
 
 // [GET] Url -> /lista ->
 router.get("/lista", getList)
 
-// [GET] Url -> /obtener/:name ->
-router.get("/obtener/:name", getByName)
+// [GET] Url -> /obtener/:id ->
+router.get("/obtener/:id", getById)
 
 //[POST] Url -> /guardar ->
 router.post("/guardar", save)

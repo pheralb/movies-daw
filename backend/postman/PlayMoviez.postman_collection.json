@@ -97,12 +97,12 @@
 					"response": []
 				},
 				{
-					"name": "Product.getByName",
+					"name": "Product.getById",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:3000/productos/obtener/Naruto2",
+							"raw": "127.0.0.1:3000/productos/obtener/627148ebccd229a44d21b27e",
 							"host": [
 								"127",
 								"0",
@@ -113,10 +113,10 @@
 							"path": [
 								"productos",
 								"obtener",
-								"Naruto2"
+								"627148ebccd229a44d21b27e"
 							]
 						},
-						"description": "Obtiene los datos de una serie/pelicula por su nombre"
+						"description": "Obtiene los datos de una serie/pelicula por su id"
 					},
 					"response": []
 				},
@@ -186,6 +186,53 @@
 								"cargarDatos"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product.getCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/lista",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"lista"
+							]
+						},
+						"description": "Obtiene la lista completa de categorias"
+					},
+					"response": []
+				},
+				{
+					"name": "Product.getListByCategorie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/categorias/Animation",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"categorias",
+								"Animation"
+							]
+						},
+						"description": "Obtiene los datos de una serie/pelicula por su nombre"
 					},
 					"response": []
 				}

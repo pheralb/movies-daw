@@ -33,21 +33,21 @@ export const getList = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-export const getByName = async (req, res) => {
-  console.log(`📨 [backend] [product] getByName: `, req.params.name)
+export const getById = async (req, res) => {
+  console.log(`📨 [backend] [product] getById: `, req.params.id)
   try{
-    const product = await Product.findOne({"title": req.params.name})
+    const product = await Product.findById(req.params.id)
     if(product){
-      console.log("✅ [backend] [products] getByName:", product);
+      console.log("✅ [backend] [products] getById:", product);
       res.status(200).json(product)
     }
     else{
-      console.log("❌ [backend] [products] getByName:", null);
+      console.log("❌ [backend] [products] getById:", product);
       res.status(404).json()
     }
   }
   catch(err){
-    console.log("❌ [backend] [products] getByName:", err);
+    console.log("❌ [backend] [products] getBy:", err);
     res.status(500).json(err)
   }
 };
