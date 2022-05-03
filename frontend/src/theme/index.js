@@ -3,12 +3,12 @@ import { mode } from "@chakra-ui/theme-tools";
 
 const theme = extendTheme({
   config: {
-    initialColorMode: "light",
+    initialColorMode: "dark",
     useSystemColorMode: false,
   },
   colors: {
     white: {
-      50: "#ffff",
+      50: "#FDFDFC",
     },
     dark: {
       50: "#f7f7f7",
@@ -38,7 +38,7 @@ const theme = extendTheme({
       body: {
         color: mode("gray.800", "gray.300")(props),
         bg: mode(
-          "white",
+          "white.50",
           "dark.800"
         )(props),
       },

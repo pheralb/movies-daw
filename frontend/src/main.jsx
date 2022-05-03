@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./pages";
 
 // ⭐ Chakra UI ->
 import { ChakraProvider } from "@chakra-ui/react";
@@ -15,8 +14,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // 📦 Pages ->
 import Home from "@/pages/index";
-import Catalogo from "@/pages/catalogo";
+import Category from "@/pages/category";
 import Error404 from "@/pages/404";
+import Movie from "@/pages/movie";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -25,7 +25,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/movie/:id" element={<Movie />} />
+            <Route path="/category/:name" element={<Category />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </Layout>

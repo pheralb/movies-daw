@@ -1,6 +1,7 @@
 import React from "react";
 import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
+import Tap from "@/animations/tap";
 
 const Index = () => {
   const { toggleColorMode } = useColorMode();
@@ -14,12 +15,14 @@ const Index = () => {
   }
 
   return (
-    <IconButton
-      variant="ghost"
-      aria-label="Toggle mode"
-      onClick={toggleMode}
-      icon={iconMode}
-    />
+    <Tap>
+      <IconButton
+        variant="ghost"
+        aria-label="Toggle mode"
+        onClick={toggleMode}
+        icon={iconMode}
+      />
+    </Tap>
   );
 };
 

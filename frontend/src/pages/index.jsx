@@ -1,4 +1,3 @@
-import Layout from "@/components/layout";
 import { Heading } from "@chakra-ui/react";
 import Show from "@/animations/show";
 import List from "@/components/movies/list";

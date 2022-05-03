@@ -1,16 +1,18 @@
 import React from "react";
 import useFetchData from "@/hooks/useFetchData";
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import Card from "@/components/movies/card";
 import Loading from "@/components/loading";
+import { Navigate } from "react-router-dom";
 
-const List = () => {
-  const apiURL = import.meta.env.VITE_ALL_LIST;
-  const { data: data, loading, error } = useFetchData(apiURL);
+const ByCategory = ({ category }) => {
+  const apiURL = import.meta.env.VITE_FILMS_BY_CATEGORY;
+  const fetchMoviesByCategory = `${apiURL}/${category}`;
+  const { data: data, loading, error } = useFetchData(fetchMoviesByCategory);
 
   if (loading) return <Loading text="Loading..." />;
 
-  if (error) return <p>Error</p>;
+  if (error) return <Navigate to="/404" />;
 
   return (
     <>
@@ -35,4 +37,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default ByCategory;

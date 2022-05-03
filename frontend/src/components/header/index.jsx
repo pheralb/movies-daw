@@ -7,16 +7,19 @@ import {
   useColorModeValue,
   Button,
   Flex,
+  Link as ChakraLink,
+  IconButton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAlbumsOutline } from "react-icons/io5";
+import { IoHomeOutline, IoAlbumsOutline, IoLogoGithub } from "react-icons/io5";
 import Change from "@/components/change";
 import Search from "@/components/search";
+import Categories from "@/components/categories";
 import Tap from "@/animations/tap";
 import Show from "@/animations/show";
 
 const Index = () => {
-  const bg = useColorModeValue("white", "dark.800");
+  const bg = useColorModeValue("white.50", "dark.800");
   return (
     <>
       <Box
@@ -31,37 +34,30 @@ const Index = () => {
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Show>
-            <HStack spacing={1}>
-              <Image src="/images/logo.png" boxSize="14" />
-              <Text fontSize="2xl">PlayMoviez</Text>
-            </HStack>
+            <Tap>
+              <Link to="/">
+                <HStack spacing={1} cursor="pointer">
+                  <Image src="/images/logo.png" boxSize="14" />
+                  <Text fontSize="2xl">PlayMoviez</Text>
+                </HStack>
+              </Link>
+            </Tap>
           </Show>
           <Show delay={0.3}>
             <HStack spacing={2}>
-              <Link to="/">
+              <Categories />
+              <ChakraLink
+                href="https://github.com/pheralb/movies-daw"
+                isExternal
+              >
                 <Tap>
-                  <Button
-                    as="a"
+                  <IconButton
                     variant="ghost"
-                    fontWeight="light"
-                    leftIcon={<IoHomeOutline />}
-                  >
-                    Home
-                  </Button>
+                    aria-label="Search films"
+                    icon={<IoLogoGithub size="22" />}
+                  />
                 </Tap>
-              </Link>
-              <Link to="/catalogo">
-                <Tap>
-                  <Button
-                    as="a"
-                    fontWeight="light"
-                    variant="ghost"
-                    leftIcon={<IoAlbumsOutline />}
-                  >
-                    Categories
-                  </Button>
-                </Tap>
-              </Link>
+              </ChakraLink>
               <Search />
               <Change />
             </HStack>

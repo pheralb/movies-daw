@@ -35,6 +35,9 @@ DBHOST=
 - Frontend folder:
 ```
 VITE_ALL_LIST=http://localhost:4000/productos/lista
+VITE_ALL_CATEGORIES=http://localhost:4000/productos/categorias
+VITE_ONE_FILM=http://localhost:4000/productos/obtener
+VITE_FILMS_BY_CATEGORY=http://localhost:4000/productos/categorias
 ```
 
 3. Run:

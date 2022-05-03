@@ -7,7 +7,7 @@ const Index = ({ children }) => {
   return (
     <>
       <Header />
-      <Box mr={{ base: 6, md: 5, lg: "120px" }} ml={{ base: 6, md: 5, lg: "120px" }} p="3" mt="3">
+      <Box mr={{ base: 6, md: 5, lg: "120px" }} ml={{ base: 6, md: 5, lg: "120px" }} p="3" mt="1">
         {children}
       </Box>
       <Footer />
