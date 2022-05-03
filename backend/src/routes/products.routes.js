@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getByName, getList, save, update, del, fillDb, getCategories, deleteAll} from "../controllers/products.controller"
+import { getByName, getList, save, update, del, fillDb, getCategories, deleteAll, getListByCategorie} from "../controllers/products.controller"
 const router = Router()
 
 // [GET] Url -> /lista ->
@@ -25,5 +25,8 @@ router.post("/cargarDatos", fillDb)
 
 //[GET] Url -> /categorias ->
 router.get("/categorias", getCategories)
+
+//[GET] Url -> /categorias/:name ->
+router.get("/categorias/:name", getListByCategorie)
 
 export default router;

@@ -14,16 +14,16 @@ export const getList = async (req, res) => {
   try{
     const products = await Product.find();
     if(products.length == 0){
-      console.log("❌ [backend] [omdbapi] getList:", products);
+      console.log("❌ [backend] [products] getList:", products);
       res.status(404).json(products)
     }
     else{
-      console.log("✅ [backend] [omdbapi] getList:", products);
+      console.log("✅ [backend] [products] getList:", products);
       res.status(200).json(products)
     }
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] getList:", err);
+    console.log("❌ [backend] [products] getList:", err);
     res.status(500).json(err)
   }
 };
@@ -38,16 +38,16 @@ export const getByName = async (req, res) => {
   try{
     const product = await Product.findOne({"title": req.params.name})
     if(product){
-      console.log("✅ [backend] [omdbapi] getByName:", product);
+      console.log("✅ [backend] [products] getByName:", product);
       res.status(200).json(product)
     }
     else{
-      console.log("❌ [backend] [omdbapi] getByName:", null);
+      console.log("❌ [backend] [products] getByName:", null);
       res.status(404).json()
     }
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] getByName:", err);
+    console.log("❌ [backend] [products] getByName:", err);
     res.status(500).json(err)
   }
 };
@@ -77,17 +77,17 @@ export const save = async (req, res) => {
                         type: Type,
                         totalSeasons})
     if(await Product.findOne({"title": Title})){
-      console.log("❌ [backend] [omdbapi] save:", `${Title} repetido`);
+      console.log("❌ [backend] [products] save:", `${Title} repetido`);
       res.status(400).json(`Encontrado producto de título: ${Title}`)
     }
     else{
       const productSave = await newProduct.save()
-      console.log("✅ [backend] [omdbapi] save:", productSave);
+      console.log("✅ [backend] [products] save:", productSave);
       res.status(201).json(productSave)
     }
     
   }catch(err){
-    console.log("❌ [backend] [omdbapi] save:", err);
+    console.log("❌ [backend] [products] save:", err);
     res.status(500).json(err)
   }
 };
@@ -102,16 +102,16 @@ export const save = async (req, res) => {
   try{
     const updatedProduct = await Product.findOneAndUpdate({"title": req.params.name}, req.body, {new: true});
     if(updatedProduct){
-      console.log("✅ [backend] [omdbapi] update:", updatedProduct);
+      console.log("✅ [backend] [products] update:", updatedProduct);
       res.status(200).json(updatedProduct)
     }
     else{
-      console.log("❌ [backend] [omdbapi] update:", null);
+      console.log("❌ [backend] [products] update:", null);
       res.status(404).json()
     }
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] update:", err);
+    console.log("❌ [backend] [products] update:", err);
     res.status(500).json(err)
   }
 };
@@ -126,16 +126,16 @@ export const del = async (req, res)=>{
   try{
     const deletedProduct = await Product.findOneAndDelete({"title": req.params.name})
     if(deletedProduct){
-      console.log("✅ [backend] [omdbapi] delete:", deletedProduct);
+      console.log("✅ [backend] [products] delete:", deletedProduct);
       res.status(200).json(deletedProduct)
     }
     else{
-      console.log("❌ [backend] [omdbapi] delete:", null);
+      console.log("❌ [backend] [products] delete:", null);
       res.status(404).json()
     }
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] delete:", err);
+    console.log("❌ [backend] [products] delete:", err);
     res.status(500).json(err)
   }
 };
@@ -169,11 +169,11 @@ export const fillDb = (req, res)=>{
           });
       });
     })
-    console.log("✅ [backend] [omdbapi] fillDb:")
+    console.log("✅ [backend] [products] fillDb:")
     res.status(201).json()
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] fillDb:", err);
+    console.log("❌ [backend] [products] fillDb:", err);
     res.status(500).json(err)
   }
 };
@@ -195,21 +195,21 @@ export const getCategories = async (req, res) => {
         })
       })
       if(products.length != 0){
-        console.log("✅ [backend] [omdbapi] getCategories:")
+        console.log("✅ [backend] [products] getCategories:")
         res.status(200).json(categories)
       }
       else{
-        console.log("❌ [backend] [omdbapi] getCategories:", categories);
+        console.log("❌ [backend] [products] getCategories:", categories);
         res.status(404).json(categories)
       }
     }
     else{
-    console.log("❌ [backend] [omdbapi] getCategories:", products);
+    console.log("❌ [backend] [products] getCategories:", products);
     res.status(404).json()
     }
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] getCategories:", err);
+    console.log("❌ [backend] [products] getCategories:", err);
     res.status(500).json(err)
   }
 }
@@ -218,11 +218,36 @@ export const deleteAll = async (req, res) => {
   console.log(`📨 [backend] [product] deleteAll: `)
   try{
     await Product.deleteMany()
-    console.log("✅ [backend] [omdbapi] deleteAll:");
+    console.log("✅ [backend] [products] deleteAll:");
     res.status(200).json()
   }
   catch(err){
-    console.log("❌ [backend] [omdbapi] deleteAll:", err);
+    console.log("❌ [backend] [products] deleteAll:", err);
+    res.status(500).json(err)
+  }
+}
+
+/**
+ * Devuelve lista de peliculas por categoria
+ * @param {*} req 
+ * @param {*} res 
+ */
+export const getListByCategorie = async (req, res) => {
+  const name = req.params.name
+  console.log(`📨 [backend] [product] getListByCategorie: ${name}`)
+  try{
+    const products = await Product.find({ "genre": { "$regex": name, "$options": "i" } });
+    if(products.length != 0){
+      console.log("✅ [backend] [products] getListByCategorie:", products);
+      res.status(200).json(products)
+    }
+    else{
+      console.log("❌ [backend] [products] getListByCategorie:", products);
+      res.status(404).json()
+    }
+  }
+  catch{
+    console.log("❌ [backend] [products] getListByCategorie:", err);
     res.status(500).json(err)
   }
 }
