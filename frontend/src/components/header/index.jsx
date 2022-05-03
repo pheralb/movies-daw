@@ -8,6 +8,7 @@ import {
   Button,
   Flex,
   IconButton,
+  Input,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import {
@@ -65,6 +66,7 @@ const Index = () => {
                   </Button>
                 </Tap>
               </Link>
+              <Input htmlSize={4} width='auto' />
               <IconButton
                 variant="ghost"
                 aria-label="Search films"
