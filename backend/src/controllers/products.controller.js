@@ -178,4 +178,41 @@ export const fillDb = (req, res)=>{
   }
 };
 
+/**
+ * Obtiene toda las lista de categorias
+ * @param {*} req 
+ * @param {*} res 
+ */
+export const getCategories = async (req, res) => {
+  console.log(`📨 [backend] [product] getCategories: `)
+  try{
+    const products = await Product.find();
+    if(products.length != 0){
+      // products.forEach(product => {
+      //   product.
+      // })
+      console.log("✅ [backend] [omdbapi] fillDb:")
+    }
+    else{
+    console.log("❌ [backend] [omdbapi] getCategories:", products);
+    res.status(404).json()
+    }
+  }
+  catch(err){
+    console.log("❌ [backend] [omdbapi] getCategories:", err);
+    res.status(500).json(err)
+  }
+}
 
+export const deleteAll = async (req, res) => {
+  console.log(`📨 [backend] [product] deleteAll: `)
+  try{
+    await Product.deleteMany()
+    console.log("✅ [backend] [omdbapi] deleteAll:");
+    res.status(200).json()
+  }
+  catch(err){
+    console.log("❌ [backend] [omdbapi] deleteAll:", err);
+    res.status(500).json(err)
+  }
+}

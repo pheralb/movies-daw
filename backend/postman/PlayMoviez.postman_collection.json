@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Title\": \"Prueba\",\r\n    \"Year\": \"2002–2007\",\r\n    \"Rated\": \"TV-PG\",\r\n    \"Released\": \"10 Sep 2005\",\r\n    \"Runtime\": \"24 min\",\r\n    \"Genre\": \"Animation, Action, Adventure\",\r\n    \"Director\": \"N/A\",\r\n    \"Writer\": \"Masashi Kishimoto\",\r\n    \"Actors\": \"Junko Takeuchi, Maile Flanagan, Kate Higgins\",\r\n    \"Plot\": \"Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.\",\r\n    \"Language\": \"English, Japanese\",\r\n    \"Country\": \"Japan\",\r\n    \"Awards\": \"N/A\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg\",\r\n    \"Ratings\": [\r\n        {\r\n            \"Source\": \"Internet Movie Database\",\r\n            \"Value\": \"8.4/10\"\r\n        }\r\n    ],\r\n    \"Metascore\": \"N/A\",\r\n    \"imdbRating\": \"8.4\",\r\n    \"imdbVotes\": \"92,850\",\r\n    \"imdbID\": \"tt0409591\",\r\n    \"Type\": \"series\",\r\n    \"totalSeasons\": \"1\",\r\n    \"Response\": \"True\"\r\n}",
+							"raw": "{\r\n    \"Title\": \"Demon Slayer: Kimetsu no Yaiba\",\r\n    \"Year\": \"2019–\",\r\n    \"Rated\": \"TV-MA\",\r\n    \"Released\": \"22 Jan 2021\",\r\n    \"Runtime\": \"25 min\",\r\n    \"Genre\": \"Animation, Action, Adventure\",\r\n    \"Director\": \"N/A\",\r\n    \"Writer\": \"N/A\",\r\n    \"Actors\": \"Natsuki Hanae, Zach Aguilar, Yoshitsugu Matsuoka\",\r\n    \"Plot\": \"A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.\",\r\n    \"Language\": \"Japanese\",\r\n    \"Country\": \"Japan\",\r\n    \"Awards\": \"7 wins & 8 nominations\",\r\n    \"Poster\": \"https://m.media-amazon.com/images/M/MV5BZjZjNzI5MDctY2Y4YS00NmM4LTljMmItZTFkOTExNGI3ODRhXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_SX300.jpg\",\r\n    \"Ratings\": [\r\n        {\r\n            \"Source\": \"Internet Movie Database\",\r\n            \"Value\": \"8.7/10\"\r\n        }\r\n    ],\r\n    \"Metascore\": \"N/A\",\r\n    \"imdbRating\": \"8.7\",\r\n    \"imdbVotes\": \"87,223\",\r\n    \"imdbID\": \"tt9335498\",\r\n    \"Type\": \"series\",\r\n    \"totalSeasons\": \"3\",\r\n    \"Response\": \"True\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -126,7 +126,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:3000/productos/borrar/Naruto",
+							"raw": "127.0.0.1:3000/productos/borrar/The Mandalorian",
 							"host": [
 								"127",
 								"0",
@@ -137,7 +137,30 @@
 							"path": [
 								"productos",
 								"borrar",
-								"Naruto"
+								"The Mandalorian"
+							]
+						},
+						"description": "Borra una serie/pelicula por su nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Producto.deleteAll",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:3000/productos/borrarTodos",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"productos",
+								"borrarTodos"
 							]
 						},
 						"description": "Borra una serie/pelicula por su nombre"
@@ -173,15 +196,12 @@
 			"item": [
 				{
 					"name": "Omdbapi.getByTitle",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"id\": \"naruto\"}",
+							"raw": "{\"id\": \"kimetsu\"}",
 							"options": {
 								"raw": {
 									"language": "json"
