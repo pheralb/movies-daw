@@ -3,11 +3,15 @@ import { useParams } from "react-router-dom";
 import Show from "@/animations/show";
 import { Heading } from "@chakra-ui/react";
 import ByCategory from "@/components/movies/byCategory";
+import Helmet from "react-helmet";
 
 const Catalogo = () => {
   let params = useParams();
   return (
     <>
+      <Helmet>
+        <title>PlayMoviez - {params.name}</title>
+      </Helmet>
       <Show>
         <Heading
           bgGradient="linear(to-l, #7928CA, #FF0080)"
