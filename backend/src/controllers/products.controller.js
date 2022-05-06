@@ -261,15 +261,17 @@ export const getListByName = async (req, res) => {
   const name = req.params.name
   console.log(`📨 [backend] [products] getListByName: ${name}`)
   try{
-    const products = await Product.find({ "title": { "$regex": `^${name}`, "$options": "i, m" } });
-    if(products.length != 0){
-      console.log("✅ [backend] [products] getListByName:", products);
-      res.status(200).json(products)
-    }
-    else{
-      console.log("❌ [backend] [products] getListByName:", products);
-      res.status(404).json()
-    }
+    const products = await Product.find({ "title": { "$regex": `${name}`, "$options": "i" } });
+    // if(products.length != 0){
+    //   console.log("✅ [backend] [products] getListByName:", products);
+    //   res.status(200).json(products)
+    // }
+    // else{
+    //   console.log("❌ [backend] [products] getListByName:", products);
+    //   res.status(404).json()
+    // }
+    console.log("✅ [backend] [products] getListByName:", products);
+    res.status(200).json(products)
   }
   catch(err){
     console.log("❌ [backend] [products] getListByName:", err);
