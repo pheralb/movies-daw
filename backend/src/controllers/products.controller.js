@@ -10,7 +10,7 @@ require("dotenv").config();
  * @param {"title": "Prueba","year": "2002–2007",...} res
  */
 export const getList = async (req, res) => {
-  console.log(`📨 [backend] [product] getList:`)
+  console.log(`📨 [backend] [products] getList:`)
   try{
     const products = await Product.find();
     if(products.length == 0){
@@ -34,7 +34,7 @@ export const getList = async (req, res) => {
  * @param {*} res
  */
 export const getById = async (req, res) => {
-  console.log(`📨 [backend] [product] getById: `, req.params.id)
+  console.log(`📨 [backend] [products] getById: `, req.params.id)
   try{
     const product = await Product.findById(req.params.id)
     if(product){
@@ -98,7 +98,7 @@ export const save = async (req, res) => {
  * @param {*} res
  */
  export const update = async (req, res) => {
-  console.log(`📨 [backend] [product] update: `, req.params.id, req.body)
+  console.log(`📨 [backend] [products] update: `, req.params.id, req.body)
   try{
     const updatedProduct = await Product.findOneAndUpdate({"_id": req.params.id}, req.body, {new: true});
     if(updatedProduct){
@@ -122,7 +122,7 @@ export const save = async (req, res) => {
  * @param {*} res
  */
 export const del = async (req, res)=>{
-  console.log(`📨 [backend] [product] delete: `, req.params.id)
+  console.log(`📨 [backend] [products] delete: `, req.params.id)
   try{
     const deletedProduct = await Product.findOneAndDelete({"_id": req.params.id})
     if(deletedProduct){
@@ -152,7 +152,7 @@ export const fillDb = (req, res)=>{
     "naruto",
     "hunter x hunter",
   ]
-  console.log(`📨 [backend] [product] fillDb: `, series)
+  console.log(`📨 [backend] [products] fillDb: `, series)
   try{
     series.forEach(serie => {
       const json = JSON.stringify({"id": serie});
@@ -184,7 +184,7 @@ export const fillDb = (req, res)=>{
  * @param {*} res 
  */
 export const getCategories = async (req, res) => {
-  console.log(`📨 [backend] [product] getCategories: `)
+  console.log(`📨 [backend] [products] getCategories: `)
   try{
     const products = await Product.find();
     if(products.length != 0){
@@ -215,7 +215,7 @@ export const getCategories = async (req, res) => {
 }
 
 export const deleteAll = async (req, res) => {
-  console.log(`📨 [backend] [product] deleteAll: `)
+  console.log(`📨 [backend] [products] deleteAll: `)
   try{
     await Product.deleteMany()
     console.log("✅ [backend] [products] deleteAll:");
@@ -234,7 +234,7 @@ export const deleteAll = async (req, res) => {
  */
 export const getListByCategorie = async (req, res) => {
   const name = req.params.name
-  console.log(`📨 [backend] [product] getListByCategorie: ${name}`)
+  console.log(`📨 [backend] [products] getListByCategorie: ${name}`)
   try{
     const products = await Product.find({ "genre": { "$regex": name, "$options": "i" } });
     if(products.length != 0){
@@ -248,6 +248,31 @@ export const getListByCategorie = async (req, res) => {
   }
   catch{
     console.log("❌ [backend] [products] getListByCategorie:", err);
+    res.status(500).json(err)
+  }
+}
+
+/**
+ * Obtiene una lista de peliculas según el nombre
+ * @param {*} req 
+ * @param {*} res 
+ */
+export const getListByName = async (req, res) => {
+  const name = req.params.name
+  console.log(`📨 [backend] [products] getListByName: ${name}`)
+  try{
+    const products = await Product.find({ "title": { "$regex": `^${name}`, "$options": "i, m" } });
+    if(products.length != 0){
+      console.log("✅ [backend] [products] getListByName:", products);
+      res.status(200).json(products)
+    }
+    else{
+      console.log("❌ [backend] [products] getListByName:", products);
+      res.status(404).json()
+    }
+  }
+  catch(err){
+    console.log("❌ [backend] [products] getListByName:", err);
     res.status(500).json(err)
   }
 }
