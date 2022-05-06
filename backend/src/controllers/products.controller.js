@@ -98,9 +98,9 @@ export const save = async (req, res) => {
  * @param {*} res
  */
  export const update = async (req, res) => {
-  console.log(`📨 [backend] [product] update: `, req.params.name, req.body)
+  console.log(`📨 [backend] [product] update: `, req.params.id, req.body)
   try{
-    const updatedProduct = await Product.findOneAndUpdate({"title": req.params.name}, req.body, {new: true});
+    const updatedProduct = await Product.findOneAndUpdate({"_id": req.params.id}, req.body, {new: true});
     if(updatedProduct){
       console.log("✅ [backend] [products] update:", updatedProduct);
       res.status(200).json(updatedProduct)
@@ -122,9 +122,9 @@ export const save = async (req, res) => {
  * @param {*} res
  */
 export const del = async (req, res)=>{
-  console.log(`📨 [backend] [product] delete: `, req.params.name)
+  console.log(`📨 [backend] [product] delete: `, req.params.id)
   try{
-    const deletedProduct = await Product.findOneAndDelete({"title": req.params.name})
+    const deletedProduct = await Product.findOneAndDelete({"_id": req.params.id})
     if(deletedProduct){
       console.log("✅ [backend] [products] delete:", deletedProduct);
       res.status(200).json(deletedProduct)

@@ -11,11 +11,11 @@ router.get("/obtener/:id", getById)
 //[POST] Url -> /guardar ->
 router.post("/guardar", save)
 
-//[PUT] Url -> /actualizar/:name ->
-router.put("/actualizar/:name", update)
+//[PUT] Url -> /actualizar/:id ->
+router.put("/actualizar/:id", update)
 
-//[DELETE] Url -> /borrar/:name ->
-router.delete("/borrar/:name", del)
+//[DELETE] Url -> /borrar/:id->
+router.delete("/borrar/:id", del)
 
 //[DELETE] Url -> /borrar/ ->
 router.delete("/borrarTodos", deleteAll)
