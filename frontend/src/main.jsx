@@ -15,6 +15,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // 📦 Pages ->
 import Home from "@/pages/index";
 import Category from "@/pages/category";
+import Search from "@/pages/search";
 import Error404 from "@/pages/404";
 import Movie from "@/pages/movie";
 
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<Movie />} />
             <Route path="/category/:name" element={<Category />} />
+            <Route path="/search/:name" element={<Search />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </Layout>
