@@ -33,35 +33,28 @@ const Index = () => {
         zIndex="1000"
       >
         <Flex alignItems="center" justifyContent="space-between">
-          <Show>
-            <Tap>
-              <Link to="/">
-                <HStack spacing={1} cursor="pointer">
-                  <Image src="/images/logo.png" boxSize="14" />
-                  <Text fontSize="2xl">PlayMoviez</Text>
-                </HStack>
-              </Link>
-            </Tap>
-          </Show>
-          <Show delay={0.3}>
-            <HStack spacing={2}>
-              <Categories />
-              <ChakraLink
-                href="https://github.com/pheralb/movies-daw"
-                isExternal
-              >
-                <Tap>
-                  <IconButton
-                    variant="ghost"
-                    aria-label="Search films"
-                    icon={<IoLogoGithub size="22" />}
-                  />
-                </Tap>
-              </ChakraLink>
-              <Search />
-              <Change />
-            </HStack>
-          </Show>
+          <Tap>
+            <Link to="/">
+              <HStack spacing={1} cursor="pointer">
+                <Image src="/images/logo.png" boxSize="14" />
+                <Text fontSize="2xl">PlayMoviez</Text>
+              </HStack>
+            </Link>
+          </Tap>
+          <HStack spacing={2}>
+            <Categories />
+            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal>
+              <Tap>
+                <IconButton
+                  variant="ghost"
+                  aria-label="Search films"
+                  icon={<IoLogoGithub size="22" />}
+                />
+              </Tap>
+            </ChakraLink>
+            <Search />
+            <Change />
+          </HStack>
         </Flex>
       </Box>
     </>
