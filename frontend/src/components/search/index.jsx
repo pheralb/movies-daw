@@ -45,6 +45,7 @@ const Index = () => {
             aria-label="Search films"
             icon={<IoSearchOutline size="22" />}
             onClick={onOpen}
+            _focus={{borderWidth: 3, borderColor: "#FF0080"}}
           />
         </Tooltip>
       </Tap>

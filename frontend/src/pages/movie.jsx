@@ -42,7 +42,7 @@ const Movie = () => {
               <Box>
                 <Text
                   mt={{ base: 6, md: 0 }}
-                  fontSize={{ base: "5xl", md: "7xl" }}
+                  fontSize={{ base: "5xl", md: "6xl" }}
                 >
                   {data.title}
                 </Text>

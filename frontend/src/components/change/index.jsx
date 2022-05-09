@@ -22,6 +22,7 @@ const Index = () => {
           aria-label="Toggle mode"
           onClick={toggleMode}
           icon={iconMode}
+          _focus={{borderWidth: 3, borderColor: "#FF0080"}}
         />
       </Tooltip>
     </Tap>

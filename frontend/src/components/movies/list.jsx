@@ -3,6 +3,7 @@ import useFetchData from "@/hooks/useFetchData";
 import { SimpleGrid } from "@chakra-ui/react";
 import Card from "@/components/movies/card";
 import Loading from "@/components/loading";
+import Show from "@/animations/show";
 
 const List = () => {
   const apiURL = import.meta.env.VITE_ALL_LIST;
@@ -18,6 +19,7 @@ const List = () => {
         {data?.map((movie) => {
           const { _id, title, rating, year, poster, plot, writer } = movie;
           return (
+            <Show delay={0.5}>
             <Card
               key={_id}
               id={_id}
@@ -28,6 +30,7 @@ const List = () => {
               writer={writer}
               rating={rating}
             />
+            </Show>
           );
         })}
       </SimpleGrid>

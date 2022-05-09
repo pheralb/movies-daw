@@ -34,8 +34,8 @@ const Index = () => {
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Tap>
-            <Link to="/">
-              <HStack spacing={1} cursor="pointer">
+            <Link to="/" >
+              <HStack spacing={1} pr={3} cursor="pointer">
                 <Image src="/images/logo.png" boxSize="14" />
                 <Text fontSize="2xl">PlayMoviez</Text>
               </HStack>
@@ -43,12 +43,13 @@ const Index = () => {
           </Tap>
           <HStack spacing={2}>
             <Categories />
-            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal="true">
+            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal _focus={{borderWidth: 3, borderColor: "#FF0080"}}>
               <Tap>
                 <IconButton
                   variant="ghost"
                   aria-label="Search films"
                   icon={<IoLogoGithub size="22" />}
+                  tabIndex={-1}
                 />
               </Tap>
             </ChakraLink>
