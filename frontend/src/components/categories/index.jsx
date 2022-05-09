@@ -16,7 +16,24 @@ const Index = () => {
   const { data: data, loading, error } = useFetchData(apiURL);
   const bg = useColorModeValue("white.50", "dark.800");
 
-  if (error) return <p>Error</p>;
+  if (error)
+  
+  return (
+  <>
+    <Menu>
+      <MenuButton
+        as={Button}
+        variant="ghost"
+        isLoading={loading}
+        fontWeight="light"
+        loadingText="Loading..."
+        leftIcon={<IoAlbumsOutline />}
+        isDisabled={error}
+      >
+        Categories
+      </MenuButton>
+    </Menu>
+  </>)
 
   return (
     <>

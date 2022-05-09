@@ -14,6 +14,7 @@ import {
   InputGroup,
   useDisclosure,
   useColorModeValue,
+  Tooltip
 } from "@chakra-ui/react";
 
 import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
@@ -37,13 +38,15 @@ const Index = () => {
   return (
     <>
       <Tap>
-        <IconButton
-          ref={finalRef}
-          variant="ghost"
-          aria-label="Search films"
-          icon={<IoSearchOutline size="22" />}
-          onClick={onOpen}
-        />
+        <Tooltip label="Search">
+          <IconButton
+            ref={finalRef}
+            variant="ghost"
+            aria-label="Search films"
+            icon={<IoSearchOutline size="22" />}
+            onClick={onOpen}
+          />
+        </Tooltip>
       </Tap>
       <Modal
         initialFocusRef={initialRef}

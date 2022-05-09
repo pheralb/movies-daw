@@ -43,7 +43,7 @@ const Index = () => {
           </Tap>
           <HStack spacing={2}>
             <Categories />
-            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal>
+            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal="true">
               <Tap>
                 <IconButton
                   variant="ghost"
