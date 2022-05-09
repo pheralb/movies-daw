@@ -12,6 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Animate from "@/animations/animate";
+import Helmet from "react-helmet";
 
 const Movie = () => {
   let params = useParams();
@@ -24,6 +25,9 @@ const Movie = () => {
 
   return (
     <>
+      <Helmet>
+        <title>PlayMoviez - Preview</title>
+      </Helmet>
       <Animate>
         <Flex direction={{ base: "column", md: "row" }} w="100%" rounded="lg">
           <Image

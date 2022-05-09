@@ -10,7 +10,7 @@ const Catalogo = () => {
   return (
     <>
       <Helmet>
-        <title>PlayMoviez - {params.name}</title>
+        <title>PlayMoviez - Category - {params.name}</title>
       </Helmet>
       <Show>
         <Heading
