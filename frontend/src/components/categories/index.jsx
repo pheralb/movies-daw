@@ -6,6 +6,7 @@ import {
   MenuList,
   Button,
   useColorModeValue,
+  border,
 } from "@chakra-ui/react";
 import useFetchData from "@/hooks/useFetchData";
 import { IoAlbumsOutline } from "react-icons/io5";

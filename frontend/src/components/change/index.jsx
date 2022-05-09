@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Tooltip, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 import Tap from "@/animations/tap";
 
@@ -16,12 +16,14 @@ const Index = () => {
 
   return (
     <Tap>
-      <IconButton
-        variant="ghost"
-        aria-label="Toggle mode"
-        onClick={toggleMode}
-        icon={iconMode}
-      />
+      <Tooltip label="Change theme">
+        <IconButton
+          variant="ghost"
+          aria-label="Toggle mode"
+          onClick={toggleMode}
+          icon={iconMode}
+        />
+      </Tooltip>
     </Tap>
   );
 };

@@ -21,9 +21,9 @@ const Card = ({ id, poster, title, rating, year, writer }) => {
       <Tap>
         <Hover>
           <Box
-            maxW={{ base: "100%", md: "md", lg: "sm" }}
+            maxW={{ base: "100%", md: "md", lg: "md" }}
             cursor="pointer"
-            borderWidth="1px"
+            borderWidth="2px"
             rounded="lg"
             opacity={opacity}
             _hover={{ shadow: "md", opacity: 1 }}

@@ -14,7 +14,7 @@ const List = () => {
 
   return (
     <>
-      <SimpleGrid minChildWidth="300px" column="4" spacing="5">
+      <SimpleGrid minChildWidth="300px" column="4" spacing="10">
         {data?.map((movie) => {
           const { _id, title, rating, year, poster, plot, writer } = movie;
           return (
