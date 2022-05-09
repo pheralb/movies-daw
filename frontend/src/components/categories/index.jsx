@@ -29,6 +29,7 @@ const Index = () => {
         loadingText="Loading..."
         leftIcon={<IoAlbumsOutline />}
         isDisabled={error}
+        _focus={{borderWidth: 3, borderColor: "#FF0080"}}
       >
         Categories
       </MenuButton>
@@ -46,6 +47,7 @@ const Index = () => {
           loadingText="Loading..."
           leftIcon={<IoAlbumsOutline />}
           isDisabled={error}
+          _focus={{borderWidth: 3, borderColor: "#FF0080"}}
         >
           Categories
         </MenuButton>
