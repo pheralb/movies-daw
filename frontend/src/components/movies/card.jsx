@@ -17,11 +17,11 @@ import Tap from "@/animations/tap";
 const Card = ({ id, poster, title, rating, year, writer }) => {
   const opacity = useColorModeValue(1, 0.8);
   return (
-    <Link to={`/movie/${id}`}>
-      <Tap>
-        <Hover>
+    <Tap>
+      <Hover>
+        <Link to={`/movie/${id}`}>
           <Box
-            maxW={{ base: "100%", md: "md", lg: "md" }}
+            maxW={{ base: "100%", md: "md", lg: "sm" }}
             cursor="pointer"
             borderWidth="2px"
             rounded="lg"
@@ -57,9 +57,9 @@ const Card = ({ id, poster, title, rating, year, writer }) => {
               </Flex>
             </Box>
           </Box>
-        </Hover>
-      </Tap>
-    </Link>
+        </Link>
+      </Hover>
+    </Tap>
   );
 };
 
