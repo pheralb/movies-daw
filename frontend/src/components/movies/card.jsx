@@ -27,7 +27,7 @@ const Card = ({ id, poster, title, rating, year, writer }) => {
             rounded="lg"
             opacity={opacity}
             //_hover={{ shadow: "0 0 10px #FF0080", opacity: 1}}
-            _hover={{ shadow: "0 0 10px black", opacity: 1}}
+            _hover={{ shadow: "0 0 5px black", opacity: 1}}
             transition="all 0.2s"  
           >
             <Image

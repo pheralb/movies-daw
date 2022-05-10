@@ -1,8 +1,16 @@
 "use strict";
 
-var _express = _interopRequireDefault(require("express"));
+var _app = _interopRequireDefault(require("./app"));
+
+require("./models/database");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var app = (0, _express["default"])();
-console.log('Server listen on port', 3000);
+require("dotenv").config(); // Start the server on port... ->
+
+
+var port = process.env.PORT || 3000;
+
+_app["default"].listen(port);
+
+console.log("🚀 [backend] Server listening on port:", port);

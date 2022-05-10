@@ -1,5 +1,7 @@
 import axios from "axios";
 import Product from "../models/Product";
+import "regenerator-runtime/runtime";
+
 
 // Environment variables config ->
 require("dotenv").config();
