@@ -75,6 +75,7 @@ const Index = () => {
                   ref={initialRef}
                   value={txtSearch}
                   onChange={(e) => setTxtSearch(e.target.value)}
+                  _focus={{ borderWidth: 3, borderColor: "#FF0080" }}
                 />
               </InputGroup>
             </form>
