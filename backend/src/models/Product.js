@@ -1,6 +1,7 @@
-import {Schema, model} from "mongoose"
+import { Schema, model } from "mongoose";
 
-const productSchema = new Schema({
+const productSchema = new Schema(
+  {
     title: String,
     year: String,
     released: String,
@@ -15,10 +16,12 @@ const productSchema = new Schema({
     poster: String,
     rating: String,
     type: String,
-    totalSeasons: Number
-}, {
+    totalSeasons: Number,
+  },
+  {
     timestamps: true,
-    versionKey: false
-})
+    versionKey: false,
+  }
+);
 
-export default model ("Product", productSchema);
+export default model("Product", productSchema);

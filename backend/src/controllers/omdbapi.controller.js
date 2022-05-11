@@ -12,8 +12,8 @@ const apikey = process.env.API_KEY_OMDAPI;
  * @param {*} res
  */
 export const getList = (req, res) => {
-  console.log(`📨 [backend] [omdbapi] getList: `)
-  console.log(req.body)
+  console.log(`📨 [backend] [omdbapi] getList: `);
+  console.log(req.body);
   var url = `${apiURL}?s=${req.body.name}&page=${req.body.page}&apikey=${apikey}`;
   axios
     .get(url)
@@ -36,8 +36,8 @@ export const getList = (req, res) => {
  * @param {*} res
  */
 export const getById = (req, res) => {
-  console.log(`📨 [backend] [omdbapi] getById: `)
-  console.log(req.body)
+  console.log(`📨 [backend] [omdbapi] getById: `);
+  console.log(req.body);
   var url = `${apiURL}?t=${req.body.id}&apikey=${apikey}`;
   axios
     .get(url)
