@@ -36,7 +36,7 @@ const Index = () => {
           <Tap>
             <Link to="/" >
               <HStack spacing={1} pr={3} cursor="pointer">
-                <Image src="/images/logo.png" boxSize="14" />
+                <Image src="/images/logo_sin_texto.png" boxSize="14" />
                 <Text fontSize="2xl">PlayMoviez</Text>
               </HStack>
             </Link>
