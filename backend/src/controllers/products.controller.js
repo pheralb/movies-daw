@@ -12,15 +12,22 @@ require("dotenv").config();
  */
 export const getList = async (req, res) => {
   const page = req.query.page
-  console.log(`📨 [backend] [products] getList: ${page}`);
+  let indexElement = (10 * (page -1 )) -1
+  console.log(indexElement)
+  //console.log(`📨 [backend] [products] getList: ${page}`);
   try {
-    const products = await Product.find().limit(page);
+    const products = await Product.find().limit(10 * page);
     if (products.length == 0) {
       console.log("❌ [backend] [products] getList:", products);
       res.status(404).json(products);
     } else {
-      console.log("✅ [backend] [products] getList:", products);
-      res.status(200).json(products);
+      const filteredProducts = products.filter( function(product, index){
+        if(index > indexElement){
+          return product
+        }
+      })
+      console.log("✅ [backend] [products] getList:", filteredProducts);
+      res.status(200).json(filteredProducts);
     }
   } catch (err) {
     console.log("❌ [backend] [products] getList:", err);
