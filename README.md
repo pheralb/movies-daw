@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/Mo7Klp0.jpg" alt="Playmoviez Banner" width="100%"/>
+<img src="https://i.imgur.com/mceLJya.png" alt="Playmoviez Banner" width="100%"/>
 
 ## 📦 Packages:
 
