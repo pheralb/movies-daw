@@ -11,9 +11,10 @@ require("dotenv").config();
  * @param {"title": "Prueba","year": "2002–2007",...} res
  */
 export const getList = async (req, res) => {
-  console.log(`📨 [backend] [products] getList:`);
+  const page = req.query.page
+  console.log(`📨 [backend] [products] getList: ${page}`);
   try {
-    const products = await Product.find();
+    const products = await Product.find().limit(page);
     if (products.length == 0) {
       console.log("❌ [backend] [products] getList:", products);
       res.status(404).json(products);
