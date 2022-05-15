@@ -5,18 +5,16 @@ import {
   HStack,
   Image,
   useColorModeValue,
-  Button,
   Flex,
   Link as ChakraLink,
-  IconButton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAlbumsOutline, IoLogoGithub } from "react-icons/io5";
 import Change from "@/components/change";
 import Search from "@/components/search";
 import Categories from "@/components/categories";
 import Tap from "@/animations/tap";
-import Show from "@/animations/show";
+import IconBtn from "@/components/buttons/iconBtn";
+import { IoLogoGithub } from "react-icons/io5";
 
 const Index = () => {
   const bg = useColorModeValue("white.50", "dark.800");
@@ -34,24 +32,26 @@ const Index = () => {
       >
         <Flex alignItems="center" justifyContent="space-between">
           <Tap>
-            <Link to="/" >
-              <HStack spacing={1} pr={3} cursor="pointer">
+            <Link to="/">
+              <HStack spacing={1} pr={3} cursor="pointer" zIndex={1}>
                 <Image src="/images/logo_sin_texto.png" boxSize="14" />
-                <Text fontSize="2xl">PlayMoviez</Text>
+                <Text
+                  fontSize="2xl"
+                  display={{ base: "none", md: "inline-flex" }}
+                >
+                  PlayMoviez
+                </Text>
               </HStack>
             </Link>
           </Tap>
           <HStack spacing={2}>
             <Categories />
-            <ChakraLink href="https://github.com/pheralb/movies-daw" isExternal _focus={{borderWidth: 3, borderColor: "#FF0080"}}>
-              <Tap>
-                <IconButton
-                  variant="ghost"
-                  aria-label="Search films"
-                  icon={<IoLogoGithub size="22" />}
-                  tabIndex={-1}
-                />
-              </Tap>
+            <ChakraLink
+              href="https://github.com/pheralb/movies-daw"
+              isExternal
+              _focus={{ borderWidth: 3, borderColor: "#FF0080" }}
+            >
+              <IconBtn title="Github" icon={<IoLogoGithub size="22" />} />
             </ChakraLink>
             <Search />
             <Change />

@@ -9,7 +9,7 @@ function App() {
       <Helmet>
         <title>PlayMoviez</title>
       </Helmet>
-      <Show>
+      <Show delay={0}>
         <Heading
           bgGradient="linear(to-l, #7928CA, #FF0080)"
           bgClip="text"
@@ -19,9 +19,7 @@ function App() {
           Amazing movies
         </Heading>
       </Show>
-      <Show delay={0.3}>
-        <List />
-      </Show>
+      <List />
     </>
   );
 }

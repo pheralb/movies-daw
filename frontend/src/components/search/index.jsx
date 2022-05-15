@@ -14,12 +14,13 @@ import {
   InputGroup,
   useDisclosure,
   useColorModeValue,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/react";
 
 import { IoCloseOutline, IoSearchOutline } from "react-icons/io5";
 import Tap from "@/animations/tap";
 import { useNavigate } from "react-router-dom";
+import IconBtn from "@/components/buttons/iconBtn";
 
 const Index = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,18 +38,11 @@ const Index = () => {
 
   return (
     <>
-      <Tap>
-        <Tooltip label="Search">
-          <IconButton
-            ref={finalRef}
-            variant="ghost"
-            aria-label="Search films"
-            icon={<IoSearchOutline size="22" />}
-            onClick={onOpen}
-            _focus={{borderWidth: 3, borderColor: "#FF0080"}}
-          />
-        </Tooltip>
-      </Tap>
+      <IconBtn
+        title="Search"
+        icon={<IoSearchOutline size="22" />}
+        onClick={onOpen}
+      />
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

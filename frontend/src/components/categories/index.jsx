@@ -4,61 +4,61 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  Button,
+  Icon,
   useColorModeValue,
+  IconButton,
+  Tooltip,
+  MenuGroup,
+  Spinner,
+  HStack,
+  Text,
 } from "@chakra-ui/react";
 import useFetchData from "@/hooks/useFetchData";
-import { IoAlbumsOutline } from "react-icons/io5";
+import { IoAlbumsOutline, IoWarningSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Tap from "@/animations/tap";
 
 const Index = () => {
   const apiURL = import.meta.env.VITE_ALL_CATEGORIES;
   const { data: data, loading, error } = useFetchData(apiURL);
   const bg = useColorModeValue("white.50", "dark.800");
+  const color = useColorModeValue("gray.900", "gray.100");
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (error)
-  
-  return (
-  <>
-    <Menu>
-      <MenuButton
-        as={Button}
-        variant="ghost"
-        isLoading={loading}
-        fontWeight="light"
-        loadingText="Loading..."
-        leftIcon={<IoAlbumsOutline />}
-        isDisabled={error}
-        _focus={{borderWidth: 3, borderColor: "#FF0080"}}
-      >
-        Categories
-      </MenuButton>
-    </Menu>
-  </>)
+    return (
+      <>
+        <HStack mr="2" borderWidth="1px" borderRadius="10px" p="2">
+          <Icon as={IoWarningSharp} size="22" color="red.500" />
+          <Text color="red.500">Error</Text>
+        </HStack>
+      </>
+    );
 
   return (
     <>
       <Menu>
         <MenuButton
-          as={Button}
+          as={IconButton}
           variant="ghost"
-          isLoading={loading}
           fontWeight="light"
-          loadingText="Loading..."
-          leftIcon={<IoAlbumsOutline />}
+          icon={<IoAlbumsOutline size="22" />}
           isDisabled={error}
-          _focus={{borderWidth: 3, borderColor: "#FF0080"}}
-        >
-          Categories
-        </MenuButton>
+          isFocusable={false}
+        />
         <MenuList bg={bg}>
-          {data?.map((category) => {
-            return (
-              <Link key={category} to={`/category/${category}`}>
-                <MenuItem>{category}</MenuItem>
-              </Link>
-            );
-          })}
+          <MenuGroup title="Categories:">
+            {data?.map((category) => {
+              return (
+                <Link key={category} to={`/category/${category}`}>
+                  <MenuItem>{category}</MenuItem>
+                </Link>
+              );
+            })}
+          </MenuGroup>
         </MenuList>
       </Menu>
     </>
