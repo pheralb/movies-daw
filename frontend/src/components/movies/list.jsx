@@ -6,7 +6,6 @@ import { IoAddOutline, IoWarningSharp } from "react-icons/io5";
 import Card from "@/components/movies/card";
 import Loading from "@/components/loading";
 import Show from "@/animations/show";
-import { Router } from "react-router-dom";
 
 const List = () => {
   const apiURL = import.meta.env.VITE_ALL_LIST;
@@ -18,11 +17,12 @@ const List = () => {
   const {
     isLoading,
     isError,
-    error,
     data,
     hasNextPage,
     fetchNextPage,
     isFetchingNextPage,
+    error,
+    status
   } = useInfiniteQuery(["movies"], fetchData, {
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {
@@ -31,13 +31,26 @@ const List = () => {
         return undefined;
       }
     },
+    retry:"false" 
   });
+  console.log(isFetchingNextPage)
 
-  if (error) {
+  if (isError) {
+    return (
     <HStack mr="2" borderWidth="1px" borderRadius="10px" p="2">
       <Icon as={IoWarningSharp} size="22" color="red.500" />
       <Text color="red.500">Error fetching data</Text>
-    </HStack>;
+    </HStack>
+    )
+  }
+
+  if(isLoading){
+    return (<Loading></Loading>)
+  }
+
+  let loadMoreDisplay = "block"
+  if(isLoading || error || !hasNextPage){
+    loadMoreDisplay = "none"
   }
 
   return (
@@ -67,6 +80,7 @@ const List = () => {
         );
       })}
       <Button
+        display={loadMoreDisplay}
         variant="ghost"
         borderWidth="1px"
         isDisabled={!hasNextPage || error || isLoading || isFetchingNextPage}
@@ -80,7 +94,7 @@ const List = () => {
         Load More
       </Button>
     </>
-  );
+  )
 };
 
 export default List;
