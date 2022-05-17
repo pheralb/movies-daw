@@ -11,7 +11,8 @@ function App() {
       </Helmet>
       <Show delay={0}>
         <Heading
-          bgGradient="linear(to-l, #7928CA, #FF0080)"
+        //bgGradient="linear(to-l, #7928CA, #FF0080)"
+        bgGradient="linear(to-l, #766df2, #ec53a6)"
           bgClip="text"
           fontSize="5xl"
           mb="6"

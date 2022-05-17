@@ -33,7 +33,7 @@ const Index = () => {
         <Flex alignItems="center" justifyContent="space-between">
           <Tap>
             <Link to="/">
-              <HStack spacing={1} pr={3} cursor="pointer" zIndex={1}>
+              <HStack spacing={1} pr={3} cursor="pointer">
                 <Image src="/images/logo_sin_texto.png" boxSize="14" />
                 <Text
                   fontSize="2xl"
@@ -49,7 +49,7 @@ const Index = () => {
             <ChakraLink
               href="https://github.com/pheralb/movies-daw"
               isExternal
-              _focus={{ borderWidth: 3, borderColor: "#FF0080" }}
+              tabIndex={-1}
             >
               <IconBtn title="Github" icon={<IoLogoGithub size="22" />} />
             </ChakraLink>

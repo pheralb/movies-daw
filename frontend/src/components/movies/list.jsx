@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Button, HStack, Icon, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Icon, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { useInfiniteQuery } from "react-query";
 import { IoAddOutline, IoWarningSharp } from "react-icons/io5";
 import Card from "@/components/movies/card";
@@ -33,7 +33,6 @@ const List = () => {
     },
     retry:"false" 
   });
-  console.log(isFetchingNextPage)
 
   if (isError) {
     return (
@@ -48,51 +47,55 @@ const List = () => {
     return (<Loading></Loading>)
   }
 
-  let loadMoreDisplay = "block"
+  let loadMoreDisplay = "flex"
   if(isLoading || error || !hasNextPage){
     loadMoreDisplay = "none"
   }
 
   return (
     <>
-      {data?.pages.map((group, i) => {
-        return (
-          <>
-            <div key={i}>
-              <SimpleGrid minChildWidth="300px" column="2" spacing="5" mb="5">
-                {group.data.map((movie) => (
-                  <Show delay={0.3}>
-                    <Card
-                      key={movie._id}
-                      id={movie._id}
-                      poster={movie.poster}
-                      title={movie.title}
-                      description={movie.plot}
-                      year={movie.year}
-                      writer={movie.writer}
-                      rating={movie.rating}
-                    />
-                  </Show>
-                ))}
-              </SimpleGrid>
-            </div>
-          </>
-        );
-      })}
-      <Button
-        display={loadMoreDisplay}
-        variant="ghost"
-        borderWidth="1px"
-        isDisabled={!hasNextPage || error || isLoading || isFetchingNextPage}
-        onClick={fetchNextPage}
-        w="100%"
-        fontWeight="light"
-        leftIcon={<IoAddOutline />}
-        isLoading={isFetchingNextPage}
-        loadingText="Loading more..."
-      >
-        Load More
-      </Button>
+        {data?.pages.map((group, i) => {
+          return (
+            <>
+              <div key={i}>
+                <SimpleGrid minChildWidth="300px" column="2" spacing="5" mb="5">
+                  {group.data.map((movie) => (
+                    <Show delay={0.3}>
+                      <Card
+                        key={movie._id}
+                        id={movie._id}
+                        poster={movie.poster}
+                        title={movie.title}
+                        description={movie.plot}
+                        year={movie.year}
+                        writer={movie.writer}
+                        rating={movie.rating}
+                      />
+                    </Show>
+                  ))}
+                </SimpleGrid>
+              </div>
+            </>
+          );
+        })}
+        <HStack display={"flex"} justifyContent={"center"}>
+          <Button
+            display={loadMoreDisplay}
+            variant="ghost"
+            borderWidth="2px"
+            isDisabled={!hasNextPage || error || isLoading || isFetchingNextPage}
+            onClick={fetchNextPage}
+            w="50%"
+            fontWeight="light"
+            leftIcon={<IoAddOutline />}
+            isLoading={isFetchingNextPage}
+            loadingText="Loading more..."
+            _focus={{ borderWidth: 3, borderColor: "#766df2" }}
+          >
+            Load More
+          </Button>
+        </HStack>
+
     </>
   )
 };

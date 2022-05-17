@@ -15,8 +15,7 @@ const IconBtn = ({ title, icon, loading, disabled, onClick }) => {
           onClick={onClick}
           isLoading={loading}
           isDisabled={disabled}
-          _focus={{ borderWidth: 3, borderColor: "#FF0080" }}
-          tabIndex={-1}
+          _focus={{ borderWidth: 3, borderColor: "#766df2" }}
         />
       </Tooltip>
     </Tap>

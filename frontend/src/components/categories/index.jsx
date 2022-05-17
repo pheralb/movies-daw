@@ -23,7 +23,6 @@ const Index = () => {
   const { data: data, loading, error } = useFetchData(apiURL);
   const bg = useColorModeValue("white.50", "dark.800");
   const color = useColorModeValue("gray.900", "gray.100");
-
   if (loading) {
     return <Spinner />;
   }
@@ -40,27 +39,31 @@ const Index = () => {
 
   return (
     <>
-      <Menu>
-        <MenuButton
-          as={IconButton}
-          variant="ghost"
-          fontWeight="light"
-          icon={<IoAlbumsOutline size="22" />}
-          isDisabled={error}
-          isFocusable={false}
-        />
-        <MenuList bg={bg}>
-          <MenuGroup title="Categories:">
-            {data?.map((category) => {
-              return (
-                <Link key={category} to={`/category/${category}`}>
-                  <MenuItem>{category}</MenuItem>
-                </Link>
-              );
-            })}
-          </MenuGroup>
-        </MenuList>
-      </Menu>
+        <Menu>
+          <Tap>
+            <Tooltip label="Categories" bg={bg} color={color}>
+              <MenuButton
+                as={IconButton}
+                variant="ghost"
+                fontWeight="light"
+                icon={<IoAlbumsOutline size="22" />}
+                isDisabled={error}
+                _focus={{ borderWidth: 3, borderColor: "#766df2" }}
+              />
+            </Tooltip>
+          </Tap>
+          <MenuList bg={bg}>
+            <MenuGroup title="Categories:">
+              {data?.map((category) => {
+                return (
+                  <Link key={category} to={`/category/${category}`}>
+                    <MenuItem>{category}</MenuItem>
+                  </Link>
+                );
+              })}
+            </MenuGroup>
+          </MenuList>
+        </Menu>
     </>
   );
 };
