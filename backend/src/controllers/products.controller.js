@@ -12,6 +12,10 @@ require("dotenv").config();
  */
 export const getList = async (req, res) => {
   const page = req.query.page
+  if(!page){
+    console.log("❌ [backend] [products] getList: page not found");
+    return res.status(400).json("Tienes que especificar el numero de página")
+  }
   let indexElement = (6 * (page -1 )) -1
   console.log(`📨 [backend] [products] getList: ${page}`);
   try {
@@ -26,7 +30,7 @@ export const getList = async (req, res) => {
           return product
         }
       })
-      console.log("✅ [backend] [products] getList:", filteredProducts);
+      console.log("✅ [backend] [products] getList:");
       res.status(200).json(filteredProducts);
     }
   } catch (err) {

@@ -11,28 +11,29 @@ import {
   getListByCategorie,
   getListByName
 } from "../controllers/products.controller";
+import { auth } from "../middlewares";
 const router = Router();
 
 // [GET] Url -> /lista ->
-router.get("/lista", getList);
+router.get("/lista", [auth.verifyToken, auth.isDeveloper], getList);
 
 // [GET] Url -> /obtener/:id ->
 router.get("/obtener/:id", getById);
 
 //[POST] Url -> /guardar ->
-router.post("/guardar", save);
+router.post("/guardar", [auth.verifyToken, auth.isDeveloper], save);
 
 //[PUT] Url -> /actualizar/:id ->
-router.put("/actualizar/:id", update);
+router.put("/actualizar/:id", [auth.verifyToken, auth.isDeveloper], update);
 
 //[DELETE] Url -> /borrar/:id->
-router.delete("/borrar/:id", del);
+router.delete("/borrar/:id", [auth.verifyToken, auth.isAdmin], del);
 
 //[DELETE] Url -> /borrar/ ->
 router.delete("/borrarTodos", deleteAll);
 
 //[POST] Url -> /cargarDatos ->
-router.post("/cargarDatos", fillDb);
+router.post("/cargarDatos", [auth.verifyToken, auth.isDeveloper], fillDb);
 
 //[GET] Url -> /categorias ->
 router.get("/categorias", getCategories);
