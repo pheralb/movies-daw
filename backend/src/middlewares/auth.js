@@ -74,3 +74,22 @@ export const isDeveloper = async (req, res, next) => {
         res.status(500).json(err)
     }
 }
+
+export const isSuperAdmin = async (req, res, next) => {
+    console.log(`📨 [backend] [auth] isSuperAdmin:`);
+    try{
+        const userFind = await User.findById(req.userId).populate("roles")
+        if(!userFind.name == "admin"){
+            console.log("❌ [backend] [auth] isSuperAdmin: Invalid User");
+            res.status(403).json("Token no válido");
+        }
+        else{
+            console.log("✅ [backend] [auth] isSuperAdmin:");
+            next()
+        }
+    }
+    catch(err){
+        console.log("❌ [backend] [auth] isSuperAdmin: ", err);
+        res.status(500).json(err)
+    }
+}

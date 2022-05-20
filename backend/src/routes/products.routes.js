@@ -15,7 +15,7 @@ import { auth } from "../middlewares";
 const router = Router();
 
 // [GET] Url -> /lista ->
-router.get("/lista", [auth.verifyToken, auth.isDeveloper], getList);
+router.get("/lista", getList);
 
 // [GET] Url -> /obtener/:id ->
 router.get("/obtener/:id", getById);
@@ -30,7 +30,7 @@ router.put("/actualizar/:id", [auth.verifyToken, auth.isDeveloper], update);
 router.delete("/borrar/:id", [auth.verifyToken, auth.isAdmin], del);
 
 //[DELETE] Url -> /borrar/ ->
-router.delete("/borrarTodos", deleteAll);
+router.delete("/borrarTodos", [auth.verifyToken, auth.isSuperAdmin], deleteAll);
 
 //[POST] Url -> /cargarDatos ->
 router.post("/cargarDatos", [auth.verifyToken, auth.isDeveloper], fillDb);
