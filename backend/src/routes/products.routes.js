@@ -11,7 +11,7 @@ import {
   getListByCategorie,
   getListByName
 } from "../controllers/products.controller";
-import { auth } from "../middlewares";
+import {isAdmin, isDeveloper, isSuperAdmin, verifyToken} from "../middlewares/auth"
 const router = Router();
 
 // [GET] Url -> /lista ->
@@ -21,19 +21,19 @@ router.get("/lista", getList);
 router.get("/obtener/:id", getById);
 
 //[POST] Url -> /guardar ->
-router.post("/guardar", [auth.verifyToken, auth.isDeveloper], save);
+router.post("/guardar", [ verifyToken,  isDeveloper], save);
 
 //[PUT] Url -> /actualizar/:id ->
-router.put("/actualizar/:id", [auth.verifyToken, auth.isDeveloper], update);
+router.put("/actualizar/:id", [ verifyToken,  isDeveloper], update);
 
 //[DELETE] Url -> /borrar/:id->
-router.delete("/borrar/:id", [auth.verifyToken, auth.isAdmin], del);
+router.delete("/borrar/:id", [ verifyToken,  isAdmin], del);
 
 //[DELETE] Url -> /borrar/ ->
-router.delete("/borrarTodos", [auth.verifyToken, auth.isSuperAdmin], deleteAll);
+router.delete("/borrarTodos", [ verifyToken,  isSuperAdmin], deleteAll);
 
 //[POST] Url -> /cargarDatos ->
-router.post("/cargarDatos", [auth.verifyToken, auth.isDeveloper], fillDb);
+router.post("/cargarDatos", [ verifyToken,  isDeveloper], fillDb);
 
 //[GET] Url -> /categorias ->
 router.get("/categorias", getCategories);

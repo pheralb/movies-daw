@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { signIn, signUp } from "../controllers/auth.controller";
+import {isDeveloper, verifyToken} from "../middlewares/auth"
+import { rolesExists, userNotExists } from "../middlewares/verifyUsers";
 
 const router = Router()
 
@@ -7,6 +9,6 @@ const router = Router()
 router.post("/signin", signIn)
 
 // [POST] Url -> /signun ->
-router.post("/signup", signUp)
+router.post("/signup", [verifyToken, isDeveloper, userNotExists, rolesExists], signUp)
 
 export default router;
