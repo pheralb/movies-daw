@@ -16,10 +16,10 @@ export const getList = async (req, res) => {
     console.log("❌ [backend] [products] getList: page not found");
     return res.status(400).json("Tienes que especificar el numero de página")
   }
-  let indexElement = (6 * (page -1 )) -1
+  let indexElement = (10 * (page -1 )) -1
   console.log(`📨 [backend] [products] getList: ${page}`);
   try {
-    const products = await Product.find().limit(6 * page);
+    const products = await Product.find().limit(10 * page);
     console.log(products.length)
     if (products.length == 0) {
       console.log("❌ [backend] [products] getList:", products);
