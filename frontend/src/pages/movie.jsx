@@ -12,6 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Animate from "@/animations/animate";
+import Player from "@/components/player";
 import Helmet from "react-helmet";
 
 const Movie = () => {
@@ -26,7 +27,7 @@ const Movie = () => {
   return (
     <>
       <Helmet>
-        <title>PlayMoviez - Preview</title>
+        <title>PlayMoviez</title>
       </Helmet>
       <Animate>
         <Flex direction={{ base: "column", md: "row" }} w="100%" rounded="lg">
@@ -66,6 +67,7 @@ const Movie = () => {
                   <Text isTruncated>{data.released}</Text>
                 </BreadcrumbItem>
               </Breadcrumb>
+              <Player YouTubeId={data.YTID} />
             </Box>
           </Box>
         </Flex>
