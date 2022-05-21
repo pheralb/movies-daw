@@ -8,7 +8,8 @@
 - [🪄 React 18](https://reactjs.org/) - A JavaScript library for building user interfaces.
 - [💅 Chakra UI](https://chakra-ui.com/) - Accessible component library.
 - [💥 Framer Motion](https://www.framer.com/motion/) - Production-ready motion library.
-- [🌸 React Query](https://react-query.tanstack.com/) - Powerful data synchronization for React.
+- [🌸 React-Query](https://react-query.tanstack.com/) - Powerful data synchronization for React.
+- [📹 React-Player](https://github.com/CookPete/react-player) - A React component for playing a variety of URLs.
 
 ## 🚀 Getting Started:
 
