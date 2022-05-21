@@ -84,6 +84,7 @@ export const save = async (req, res) => {
       imdbRating,
       Type,
       totalSeasons,
+      YTID
     } = req.body;
     
     const newProduct = new Product({
@@ -102,6 +103,7 @@ export const save = async (req, res) => {
       rating: imdbRating,
       type: Type,
       totalSeasons,
+      YTID
     });
     if (await Product.findOne({ title: Title })) {
       console.log("❌ [backend] [products] save:", `${Title} repetido`);

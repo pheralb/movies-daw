@@ -17,6 +17,7 @@ const productSchema = new Schema(
     rating: String,
     type: String,
     totalSeasons: Number,
+    YTID: String
   },
   {
     timestamps: true,
