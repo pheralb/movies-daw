@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/mceLJya.png" alt="Playmoviez Banner" width="100%"/>
+<img src="https://i.ibb.co/Xtb48D5/banner.png" alt="Playmoviez Banner" width="100%"/>
 
 ## 📦 Packages:
 
@@ -28,21 +28,27 @@ npm install
 2. Create an .env file in..
 
 - Backend folder:
+
 ```
 PORT=
-API_KEY_OMDAPI=
 DBHOST=
 ```
 
 - Frontend folder:
+
 ```
 VITE_ALL_LIST=http://localhost:4000/productos/lista
 VITE_ALL_CATEGORIES=http://localhost:4000/productos/categorias
 VITE_ONE_FILM=http://localhost:4000/productos/obtener
 VITE_FILMS_BY_CATEGORY=http://localhost:4000/productos/categorias
+VITE_FILMS_BY_NAME=http://localhost:4000/productos/lista
 ```
 
+- [Click here for information on all endpoints](https://github.com/pheralb/movies-daw/blob/main/backend/backend.md).
+
 3. Run:
+
+- from the following directory: \movies-daw
 
 ```
 npm run front
