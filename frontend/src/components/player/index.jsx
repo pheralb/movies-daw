@@ -59,6 +59,7 @@ const Index = ({ YouTubeId }) => {
         fontWeight="light"
         borderWidth="1px"
         leftIcon={<IoPlayOutline size="22" />}
+        _focus={{ borderWidth: 3, borderColor: "#766df2" }}
       >
         {rePlay ? "Repeat movie" : "Play movie"}
       </Button>
@@ -95,9 +96,11 @@ const Index = ({ YouTubeId }) => {
                 <Slider
                   aria-label="slider-ex-1"
                   defaultValue={progressVideoValue}
+                  _focus={{ borderWidth: 3, borderColor: "#766df2" }}
+                  colorScheme='blue'
                 >
                   <SliderTrack>
-                    <SliderFilledTrack />
+                    <SliderFilledTrack bg="#766df2"/>
                   </SliderTrack>
                   <SliderThumb />
                 </Slider>
@@ -117,6 +120,7 @@ const Index = ({ YouTubeId }) => {
                         )
                       }
                       onClick={() => setMute(!mute)}
+                      _focus={{ borderWidth: 3, borderColor: "#766df2" }}
                     />
                     <IconButton
                       variant="ghost"
@@ -129,12 +133,14 @@ const Index = ({ YouTubeId }) => {
                         )
                       }
                       onClick={() => setPlay(!play)}
+                      _focus={{ borderWidth: 3, borderColor: "#766df2" }}
                     />
                     <IconButton
                       variant="ghost"
                       aria-label="Play"
                       icon={<IoCloseOutline size="22" />}
                       onClick={handleClose}
+                      _focus={{ borderWidth: 3, borderColor: "#766df2" }}
                     />
                   </HStack>
                 </Show>

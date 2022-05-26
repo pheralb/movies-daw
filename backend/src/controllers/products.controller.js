@@ -12,15 +12,15 @@ require("dotenv").config();
  */
 export const getList = async (req, res) => {
   const page = req.query.page
+  const num_prod = 10
   if(!page){
     console.log("❌ [backend] [products] getList: page not found");
     return res.status(400).json("Tienes que especificar el numero de página")
   }
-  let indexElement = (10 * (page -1 )) -1
+  let indexElement = (num_prod * (page -1 )) -1
   console.log(`📨 [backend] [products] getList: ${page}`);
   try {
-    const products = await Product.find().limit(10 * page);
-    console.log(products.length)
+    const products = await Product.find().limit(num_prod * page);
     if (products.length == 0) {
       console.log("❌ [backend] [products] getList:", products);
       res.status(404).json(products);

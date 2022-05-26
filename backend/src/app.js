@@ -4,10 +4,11 @@ import cors from "cors";
 import omdbapiRoutes from "./routes/omdbapi.routes";
 import productsRoutes from "./routes/products.routes";
 import authRoutes from "./routes/auth.routes";
-import { createRoles } from "./libs/initialSetup";
+import { createRoles, createSuperAdmin } from "./libs/initialSetup";
 
 const app = express();
 createRoles();
+createSuperAdmin();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
