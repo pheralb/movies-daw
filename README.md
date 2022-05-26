@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/Xtb48D5/banner.png" alt="Playmoviez Banner" width="100%"/>
+<img src="https://github.com/pheralb/movies-daw/blob/main/.github/banner.png?raw=true" alt="Playmoviez Banner" width="100%"/>
 
 ## 📦 Packages:
 
