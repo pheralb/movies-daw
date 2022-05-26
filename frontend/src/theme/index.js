@@ -21,8 +21,10 @@ const theme = extendTheme({
     },
     pink: {
       100: "#A531DC",
+      400: "#ec53a6",
     },
     purple: {
+      400: "#766df2",
       600: "#8014ff",
       800: "#4300B1",
       900: "#5103af",

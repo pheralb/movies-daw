@@ -48,7 +48,7 @@ const Index = () => {
                 fontWeight="light"
                 icon={<IoAlbumsOutline size="22" />}
                 isDisabled={error}
-                _focus={{ borderWidth: 3, borderColor: "#766df2" }}
+                _focus={{ borderWidth: 3, borderColor: "purple.400" }}
               />
             </Tooltip>
           </Tap>

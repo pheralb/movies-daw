@@ -18,48 +18,41 @@ const Card = ({ id, poster, title, rating, year, writer }) => {
   const opacity = useColorModeValue(1, 0.8);
   return (
     <Tap>
-      <Hover>
-        <Link to={`/movie/${id}`}>
-          <Box
-            maxW={{ base: "100%", md: "md", lg: "sm" }}
-            cursor="pointer"
-            borderWidth="2px"
-            rounded="lg"
-            opacity={opacity}
-            //_hover={{ shadow: "0 0 10px #FF0080", opacity: 1}}
-            _hover={{ shadow: "0 0 5px black", opacity: 1}}
-            transition="all 0.2s"  
-          >
-            <Image
-              src={poster}
-              alt={title}
-              roundedTop="lg"
-              w="full"
-              fit="cover"
-              h={56}
-            />
-            <Box p="6">
-              <Heading fontSize="2xl" isTruncated>
-                {title}
-              </Heading>
-              <Text isTruncated mb="4" color="gray.500">
-                by {writer}
-              </Text>
-              <Flex
-                direction={"row"}
-                justifyContent="space-between"
-                spacing={2}
-              >
-                <HStack spacing={1} mr="2">
-                  <Icon as={IoStarOutline} mr="1" color="yellow.500" />
-                  <Text>{rating}</Text>
-                </HStack>
-                <Text color="gray.500">{year}</Text>
-              </Flex>
-            </Box>
+      <Link to={`/movie/${id}`}>
+        <Box
+          maxW={{ base: "100%", md: "md", lg: "sm" }}
+          cursor="pointer"
+          borderWidth="2px"
+          rounded="lg"
+          opacity={opacity}
+          _hover={{ shadow: "0 0 5px black", opacity: 1 }}
+          transition="all 0.2s"
+        >
+          <Image
+            src={poster}
+            alt={title}
+            roundedTop="lg"
+            w="full"
+            fit="cover"
+            h={56}
+          />
+          <Box p="6">
+            <Heading fontSize="2xl" isTruncated>
+              {title}
+            </Heading>
+            <Text isTruncated mb="4" color="gray.500">
+              by {writer}
+            </Text>
+            <Flex direction={"row"} justifyContent="space-between" spacing={2}>
+              <HStack spacing={1} mr="2">
+                <Icon as={IoStarOutline} mr="1" color="yellow.500" />
+                <Text>{rating}</Text>
+              </HStack>
+              <Text color="gray.500">{year}</Text>
+            </Flex>
           </Box>
-        </Link>
-      </Hover>
+        </Box>
+      </Link>
     </Tap>
   );
 };

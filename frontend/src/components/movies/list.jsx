@@ -1,11 +1,20 @@
 import React from "react";
 import axios from "axios";
-import { Box, Button, HStack, Icon, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Icon,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useInfiniteQuery } from "react-query";
 import { IoAddOutline, IoWarningSharp } from "react-icons/io5";
 import Card from "@/components/movies/card";
 import Loading from "@/components/loading";
 import Show from "@/animations/show";
+import Hover from "@/animations/hover";
 
 const List = () => {
   const apiURL = import.meta.env.VITE_ALL_LIST;
@@ -22,7 +31,7 @@ const List = () => {
     fetchNextPage,
     isFetchingNextPage,
     error,
-    status
+    status,
   } = useInfiniteQuery(["movies"], fetchData, {
     getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {
@@ -31,38 +40,38 @@ const List = () => {
         return undefined;
       }
     },
-    retry:"false" 
+    retry: "false",
   });
 
   if (isError) {
     return (
-    <HStack mr="2" borderWidth="1px" borderRadius="10px" p="2">
-      <Icon as={IoWarningSharp} size="22" color="red.500" />
-      <Text color="red.500">Error fetching data</Text>
-    </HStack>
-    )
+      <HStack mr="2" borderWidth="1px" borderRadius="10px" p="2">
+        <Icon as={IoWarningSharp} size="22" color="red.500" />
+        <Text color="red.500">Error fetching data</Text>
+      </HStack>
+    );
   }
 
-  if(isLoading){
-    return (<Loading></Loading>)
+  if (isLoading) {
+    return <Loading></Loading>;
   }
 
-  let loadMoreDisplay = "flex"
-  if(isLoading || error || !hasNextPage){
-    loadMoreDisplay = "none"
+  let loadMoreDisplay = "flex";
+  if (isLoading || error || !hasNextPage) {
+    loadMoreDisplay = "none";
   }
 
   return (
     <>
-        {data?.pages.map((group, i) => {
-          return (
-            <>
-              <div key={i}>
-                <SimpleGrid minChildWidth="300px" column="2" spacing="5" mb="5">
-                  {group.data.map((movie) => (
-                    <Show delay={0.3}>
+      {data?.pages.map((group, i) => {
+        return (
+          <>
+            <div key={i}>
+              <SimpleGrid minChildWidth="300px" column="2" spacing="5" mb="5">
+                {group.data.map((movie) => (
+                  <Show delay={0.3}>
+                    <Hover key={movie._id}>
                       <Card
-                        key={movie._id}
                         id={movie._id}
                         poster={movie.poster}
                         title={movie.title}
@@ -71,33 +80,34 @@ const List = () => {
                         writer={movie.writer}
                         rating={movie.rating}
                       />
-                    </Show>
-                  ))}
-                </SimpleGrid>
-              </div>
-            </>
-          );
-        })}
-        <HStack display={"flex"} justifyContent={"center"}>
-          <Button
-            display={loadMoreDisplay}
-            variant="ghost"
-            borderWidth="2px"
-            isDisabled={!hasNextPage || error || isLoading || isFetchingNextPage}
-            onClick={fetchNextPage}
-            w="50%"
-            fontWeight="light"
-            leftIcon={<IoAddOutline />}
-            isLoading={isFetchingNextPage}
-            loadingText="Loading more..."
-            _focus={{ borderWidth: 3, borderColor: "#766df2" }}
-          >
-            Load More
-          </Button>
-        </HStack>
-
+                    </Hover>
+                  </Show>
+                ))}
+              </SimpleGrid>
+            </div>
+          </>
+        );
+      })}
+      <HStack display={"flex"} justifyContent={"center"}>
+        <Button
+          display={loadMoreDisplay}
+          variant="ghost"
+          borderWidth="2px"
+          isDisabled={!hasNextPage || error || isLoading || isFetchingNextPage}
+          onClick={fetchNextPage}
+          mt="4"
+          w="50%"
+          fontWeight="light"
+          leftIcon={<IoAddOutline />}
+          isLoading={isFetchingNextPage}
+          loadingText="Loading more..."
+          _focus={{ borderWidth: 3, borderColor: "purple.400" }}
+        >
+          Load More
+        </Button>
+      </HStack>
     </>
-  )
+  );
 };
 
 export default List;
