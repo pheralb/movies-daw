@@ -34,7 +34,7 @@ const List = () => {
     status,
   } = useInfiniteQuery(["movies"], fetchData, {
     getNextPageParam: (_lastPage, pages) => {
-      if (pages.length < 4) {
+      if (pages.length < 5) {
         return pages.length + 1;
       } else {
         return undefined;
