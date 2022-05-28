@@ -9,6 +9,7 @@ import { createRoles, createSuperAdmin } from "./libs/initialSetup";
 const app = express();
 createRoles();
 createSuperAdmin();
+
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
