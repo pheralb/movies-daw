@@ -7,28 +7,13 @@ import {
   ModalContent,
   ModalBody,
   useDisclosure,
-  Box,
-  Progress,
-  IconButton,
-  HStack,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
   Container,
-  Text,
 } from "@chakra-ui/react";
-import {
-  IoPlayOutline,
-  IoPauseOutline,
-  IoCloseOutline,
-  IoVolumeHighOutline,
-  IoVolumeMuteOutline,
-} from "react-icons/io5";
+import { IoPlayOutline, IoClose } from "react-icons/io5";
 import ReactPlayer from "react-player/youtube";
-import Show from "@/animations/show";
 
 const Index = ({ YouTubeId }) => {
+  
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [play, setPlay] = useState(false);
   const [mute, setMute] = useState(false);
@@ -37,6 +22,7 @@ const Index = ({ YouTubeId }) => {
 
   const handlePlay = () => {
     onOpen();
+    setPlay(true);
   };
 
   const handleClose = () => {
@@ -62,7 +48,7 @@ const Index = ({ YouTubeId }) => {
         _focus={{ borderWidth: 3, borderColor: "purple.400" }}
         w={{ base: "100%", md: "auto" }}
       >
-        {rePlay ? "Repeat movie" : "Play movie"}
+        {rePlay ? "Repeat trailer" : "Play trailer"}
       </Button>
 
       <Modal
@@ -81,7 +67,7 @@ const Index = ({ YouTubeId }) => {
               playing={play}
               muted={mute}
               onProgress={(progress) => {
-                setProgressVideoValue(progress.playedSeconds);
+                setProgressVideoValue(progress.played);
               }}
               onEnded={finishMovie}
               url={`https://www.youtube.com/watch?v=${YouTubeId}`}
@@ -93,58 +79,19 @@ const Index = ({ YouTubeId }) => {
                 borderRadius="5px"
                 p="3"
                 opacity="0.9"
+                flexDirection="center"
+                justifyContent="center"
               >
-                <Slider
-                  aria-label="slider-ex-1"
-                  defaultValue={progressVideoValue}
-                  _focus={{ borderWidth: 3, borderColor: "purple.400" }}
-                  colorScheme='blue'
+                <Button
+                  w="100%"
+                  variant="ghost"
+                  borderWidth="1px"
+                  fontWeight="light"
+                  leftIcon={<IoClose />}
+                  onClick={handleClose}
                 >
-                  <SliderTrack>
-                    <SliderFilledTrack bg="purple.400"/>
-                  </SliderTrack>
-                  <SliderThumb />
-                </Slider>
-                <Show>
-                  <HStack justifyContent="space-between">
-                    <Text>{progressVideoValue}</Text>
-                  </HStack>
-                  <HStack spacing={1} justifyContent="center">
-                    <IconButton
-                      variant="ghost"
-                      aria-label="Muted"
-                      icon={
-                        mute ? (
-                          <IoVolumeMuteOutline size="22" />
-                        ) : (
-                          <IoVolumeHighOutline size="22" />
-                        )
-                      }
-                      onClick={() => setMute(!mute)}
-                      _focus={{ borderWidth: 3, borderColor: "purple.400" }}
-                    />
-                    <IconButton
-                      variant="ghost"
-                      aria-label="Play"
-                      icon={
-                        play ? (
-                          <IoPauseOutline size="22" />
-                        ) : (
-                          <IoPlayOutline size="22" />
-                        )
-                      }
-                      onClick={() => setPlay(!play)}
-                      _focus={{ borderWidth: 3, borderColor: "purple.400" }}
-                    />
-                    <IconButton
-                      variant="ghost"
-                      aria-label="Play"
-                      icon={<IoCloseOutline size="22" />}
-                      onClick={handleClose}
-                      _focus={{ borderWidth: 3, borderColor: "purple.400" }}
-                    />
-                  </HStack>
-                </Show>
+                  Close trailer
+                </Button>
               </Container>
             </Flex>
           </ModalBody>
